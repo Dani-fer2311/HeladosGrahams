@@ -1,0 +1,452 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gelato Grahams — Heladería Artesanal</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    /* Paleta del usuario */
+    :root{
+      --cherry: #9A0002; /* Cherry Cola */
+      --cream: #EFE6DE; /* Cream Vanilla */
+      --white: #ffffff;
+      --muted: #8b3b36;
+    }
+
+    html,body{height:100%;}
+    body{
+      font-family: 'Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      background: linear-gradient(180deg,var(--cream) 0%, #f6efec 100%);
+      color: var(--muted);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    /* Navbar */
+    .navbar{
+      background: transparent;
+      padding: 1rem 2rem;
+    }
+    .nav-brand{
+      font-family: 'Playfair Display', serif;
+      color: var(--cherry);
+      font-weight:700;
+      letter-spacing: 1px;
+      font-size:1.45rem;
+    }
+    .nav-link{color:var(--muted) !important; font-weight:600}
+
+    /* Hero */
+    .hero{
+      padding:6rem 1rem 3rem;
+      text-align:center;
+    }
+    .hero .title{
+      font-family: 'Playfair Display', serif;
+      font-size:3.25rem;
+      color:var(--cherry);
+      letter-spacing:1px;
+      margin-bottom:0.5rem;
+    }
+    .hero .subtitle{
+      font-size:1.05rem;
+      color: #5b2322;
+      margin-bottom:2rem;
+    }
+
+    /* Logo circle */
+    .logo-wrap{
+      max-width:360px;
+      margin:0 auto 1.5rem;
+      background: #fff0f0cc;
+      border-radius:50%;
+      padding:30px;
+      display:flex;align-items:center;justify-content:center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    }
+    .logo-wrap img{width:260px; height:auto}
+
+    /* CTA */
+    .btn-cta{
+      background:var(--cherry);
+      color:var(--cream);
+      border-radius:40px;
+      padding:0.7rem 1.4rem;
+      font-weight:700;
+      box-shadow:0 8px 20px rgba(154,0,2,0.18);
+      transition:transform .22s ease; 
+    }
+    .btn-cta:hover{transform:translateY(-4px)}
+
+    /* Section styles */
+    section{padding:4rem 0}
+    .section-title{font-weight:800;color:var(--cherry);margin-bottom:1.2rem}
+    .muted-lead{color:#6b3b39}
+
+    /* Cards */
+    .flavor-card{
+      border-radius:18px;
+      padding:18px;
+      background:linear-gradient(180deg,#fff,#fff0f0);
+      border:2px solid rgba(154,0,2,0.06);
+      transition:transform .25s ease, box-shadow .25s ease;
+    }
+    .flavor-card:hover{transform:translateY(-8px);box-shadow:0 18px 30px rgba(154,0,2,0.06)}
+    .flavor-badge{display:inline-block;padding:6px 10px;border-radius:12px;background:var(--cherry);color:var(--cream);font-weight:700}
+
+    /* Gallery */
+    .gallery-item{border-radius:14px; overflow:hidden; background: #fff; min-height:200px; display:flex;align-items:center;justify-content:center}
+
+    /* Contact */
+    .contact-card{background:linear-gradient(180deg,#fff,#fff6f6);border-radius:16px;padding:1.6rem;border:1px solid rgba(0,0,0,0.04)}
+
+    /* Footer */
+    footer{padding:2.2rem 0;background:transparent;color:#6a3b39}
+
+    /* Simple animations */
+    .fade-in{opacity:0;transform:translateY(12px);transition:opacity .6s ease, transform .6s ease}
+    .fade-in.show{opacity:1;transform:none}
+
+    .float{animation:floaty 4s ease-in-out infinite}
+    @keyframes floaty{0%{transform:translateY(0)}50%{transform:translateY(-10px)}100%{transform:translateY(0)}}
+
+    /* Responsive tweaks */
+    @media (max-width:768px){
+      .hero .title{font-size:2rem}
+      .logo-wrap{max-width:260px;padding:18px}
+      .logo-wrap img{width:190px}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand nav-brand" href="#">GELATO GRAHAMS</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item px-2"><a class="nav-link" href="#sabores">Sabores</a></li>
+          <li class="nav-item px-2"><a class="nav-link" href="#galeria">Galería</a></li>
+          <li class="nav-item px-2"><a class="nav-link" href="#sobre">Sobre</a></li>
+          <li class="nav-item px-2"><a class="nav-link" href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="container">
+      <div class="logo-wrap float">
+        <img src="/mnt/data/logo gelato graham [Recuperado]_Mesa de trabajo 1.png" alt="Logo Gelato Grahams">
+      </div>
+      <h1 class="title">Helados artesanales & graham love</h1>
+      <p class="subtitle">Sabores cremosos, galleta graham crujiente y mucho corazón. Hecho a mano en cada tanda.</p>
+      <div class="d-flex justify-content-center gap-3">
+        <a href="#sabores" class="btn btn-cta">Ver Sabores</a>
+        <a href="#contacto" class="btn btn-outline-secondary" style="border-radius:40px;padding:0.6rem 1.3rem;font-weight:700;color:var(--cherry)">Pedir ahora</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Sabores -->
+  <section id="sabores">
+    <div class="container">
+      <div class="row align-items-center mb-4">
+        <div class="col-md-6">
+          <h2 class="section-title">Nuestros sabores</h2>
+          <p class="muted-lead">Creamos combinaciones que celebran la galleta graham: desde clásicos como Vainilla con trozos hasta propuestas más atrevidas.</p>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <span class="flavor-badge">Edición limitada</span>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-4">
+          <article class="flavor-card p-4 fade-in">
+            <h5 class="mb-2">Cherry Cola Graham</h5>
+            <p class="small">#9A0002 — Cerezas maceradas con base de crema y trozos de graham caramelizada.</p>
+            <div class="mt-3"><strong>Precio:</strong> $3.50 / porción</div>
+          </article>
+        </div>
+
+        <div class="col-md-4">
+          <article class="flavor-card p-4 fade-in">
+            <h5 class="mb-2">Cream Vanilla Crunch</h5>
+            <p class="small">#EFE6DE — Vainilla bourbon con corazón de crema y crumble de graham.</p>
+            <div class="mt-3"><strong>Precio:</strong> $3.00 / porción</div>
+          </article>
+        </div>
+
+        <div class="col-md-4">
+          <article class="flavor-card p-4 fade-in">
+            <h5 class="mb-2">ChocoGraham Delight</h5>
+            <p class="small">Chocolate oscuro, salsa de cacao y graham crocante.</p>
+            <div class="mt-3"><strong>Precio:</strong> $3.80 / porción</div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Galería -->
+  <section id="galeria" class="bg-light">
+    <div class="container">
+      <h3 class="section-title">Galería</h3>
+      <div class="row g-3">
+        <div class="col-sm-6 col-lg-3">
+          <div class="gallery-item p-3 fade-in"> <div><strong>Foto 1</strong><br><small>Presentación</small></div></div>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+          <div class="gallery-item p-3 fade-in"> <div><strong>Foto 2</strong><br><small>Con graham</small></div></div>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+          <div class="gallery-item p-3 fade-in"> <div><strong>Foto 3</strong><br><small>Toppings</small></div></div>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+          <div class="gallery-item p-3 fade-in"> <div><strong>Foto 4</strong><br><small>Paleta</small></div></div>
+        </div>
+      </div>
+
+      <div class="text-center mt-4">
+        <a class="btn btn-outline-secondary" href="#contacto" style="border-radius:40px;color:var(--cherry);font-weight:700">Reservar degustación</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section id="sobre">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <h3 class="section-title">Nuestra historia</h3>
+          <p class="muted-lead">Gelato Grahams nació de un momento simple pero especial: el aroma dulce de unas galletas graham recién horneadas que llenaron una cocina de recuerdos. Aquella mezcla de crujiente, calidez y suavidad despertó la idea de capturar esa sensación en un helado.</p>
+          
+          <p class="muted-lead">La marca empezó como un pequeño experimento artesanal, buscando unir la cremosidad perfecta con el toque único de las galletas graham. Tras muchas pruebas, combinaciones y recetas ajustadas con paciencia, surgió un helado distinto: suave, delicado y con trocitos de graham que sorprenden en cada bocado.</p>
+          
+          <p class="muted-lead"><strong>Desde el inicio, Gelato Grahams se creó con una intención clara: convertir los sabores en emociones.</strong> Queremos que cada cucharada recuerde a momentos bonitos, a tardes tranquilas, a sensaciones que abrazan.</p>
+          
+          <p class="muted-lead">Hoy, Gelato Grahams es más que un helado. Es una experiencia artesanal hecha en pequeños lotes, con ingredientes seleccionados y una dedicación que se nota en cada detalle. Cada sabor cuenta una historia: una mezcla de nostalgia, creatividad y cariño por las cosas hechas a mano.</p>
+          
+          <p class="muted-lead"><strong>Porque para nosotros, un helado no es solo un postre…</strong></p>
+        </div>
+        <div class="col-lg-6 text-center">
+          <img src="/mnt/data/paleta graham.jpg" alt="Paleta de colores" style="max-width:320px;border-radius:12px;box-shadow:0 8px 18px rgba(0,0,0,0.06)">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h3 class="section-title">Contacto & Pedidos</h3>
+          <p class="muted-lead">Escríbenos para pedidos, eventos o pruebas de sabores. Respuesta en <strong>24 horas</strong> laborables.</p>
+
+          <div class="contact-card">
+            <form id="contactForm">
+              <div class="mb-3"><label class="form-label">Nombre</label><input class="form-control" id="name" required></div>
+              <div class="mb-3"><label class="form-label">Email</label><input class="form-control" id="email" type="email" required></div>
+              <div class="mb-3"><label class="form-label">Mensaje</label><textarea class="form-control" id="message" rows="4" required></textarea></div>
+              <div class="d-flex gap-2">
+                <button class="btn btn-cta" type="submit">Enviar mensaje</button>
+                <button class="btn btn-outline-secondary" type="reset">Limpiar</button>
+              </div>
+              <div id="formAlert" class="mt-3" style="display:none;"></div>
+            </form>
+          </div>
+
+        </div>
+        <div class="col-md-6">
+          <h5 class="mb-3">Dónde encontrarnos</h5>
+          <p>Mercado central — Cochabamba</p>
+          <p><strong>Tel:</strong> +591 7000 0000</p>
+          <p><strong>Redes:</strong> @gelatograhams</p>
+
+          <div id="mapPrincipal" style="height:280px;border-radius:12px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.08)"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+<!-- UBICACIÓN EXTRA -->
+<section id="ubicacion">
+  <div class="container fade-in">
+    <h3 class="section-title">Otras ubicaciones</h3>
+    <p class="muted-lead">Además de nuestro punto principal, puedes encontrarnos también en:</p>
+
+    <div class="row g-4 mb-4">
+      <div class="col-md-4">
+        <div class="contact-card">
+          <h6 class="mb-2">Zona Norte</h6>
+          <p class="small mb-2">Av. América y Pando, frente al boulevard.</p>
+          <small class="text-muted">Cochabamba</small>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="contact-card">
+          <h6 class="mb-2">La Cancha</h6>
+          <p class="small mb-2">Pasillo de comidas, sector postres.</p>
+          <small class="text-muted">Cochabamba</small>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="contact-card">
+          <h6 class="mb-2">Centro</h6>
+          <p class="small mb-2">Plaza 14 de Septiembre, feria de fin de semana.</p>
+          <small class="text-muted">Cochabamba</small>
+        </div>
+      </div>
+    </div>
+
+    <div id="mapSecundario" style="height:350px;border-radius:12px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.08);margin-top:2rem"></div>
+  </div>
+</section>
+
+  <footer>
+    <div class="container d-flex justify-content-between align-items-center">
+      <div>&copy; <strong>Gelato Grahams</strong> — Hecho con ♥</div>
+      <div class="small">Paleta: <span style="color:var(--cherry)">Cherry Cola</span> • <span style="color:var(--muted)">Cream Vanilla</span></div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Leaflet CSS y JS (OpenStreetMap - Gratuito) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+
+  <script>
+    // Coordenadas principales (Mercado Central, Cochabamba)
+    const coordPrincipal = { lat: -17.3932, lng: -66.1610 };
+    
+    // Otras ubicaciones
+    const ubicaciones = [
+      { lat: -17.3850, lng: -66.1505, nombre: "Zona Norte", descripcion: "Av. América y Pando" },
+      { lat: -17.4050, lng: -66.1705, nombre: "La Cancha", descripcion: "Pasillo de comidas" },
+      { lat: -17.3938075, lng: -66.1569397, nombre: "Centro", descripcion: "Plaza 14 de Septiembre" }
+    ];
+
+    // Inicializar mapa principal
+    function initMapPrincipal() {
+      const mapPrincipal = L.map('mapPrincipal').setView([coordPrincipal.lat, coordPrincipal.lng], 16);
+      
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors',
+        maxZoom: 19
+      }).addTo(mapPrincipal);
+
+      L.circleMarker([coordPrincipal.lat, coordPrincipal.lng], {
+        radius: 12,
+        fillColor: "#9A0002",
+        color: "#fff",
+        weight: 3,
+        opacity: 1,
+        fillOpacity: 0.8
+      }).addTo(mapPrincipal).bindPopup(
+        '<div style="font-family: Montserrat; color: #333"><strong style="color: #9A0002">Gelato Grahams</strong><br>Mercado Central<br>Cochabamba, Bolivia<br><em>+591 7000 0000</em></div>'
+      ).openPopup();
+    }
+
+    // Inicializar mapa secundario con todas las ubicaciones
+    function initMapSecundario() {
+      const mapSecundario = L.map('mapSecundario').setView([-17.39, -66.15], 14);
+      
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors',
+        maxZoom: 19
+      }).addTo(mapSecundario);
+
+      // Crear grupo de límites para centrar mapa
+      const group = new L.featureGroup();
+
+      ubicaciones.forEach((ub, idx) => {
+        const marker = L.circleMarker([ub.lat, ub.lng], {
+          radius: 10,
+          fillColor: "#F39C12",
+          color: "#fff",
+          weight: 2,
+          opacity: 1,
+          fillOpacity: 0.85
+        }).addTo(mapSecundario).bindPopup(
+          `<div style="font-family: Montserrat; color: #333"><strong style="color: #9A0002">${ub.nombre}</strong><br>${ub.descripcion}<br><small>Cochabamba</small></div>`
+        );
+
+        group.addLayer(marker);
+      });
+
+      // Centrar mapa en todos los marcadores
+      mapSecundario.fitBounds(group.getBounds().pad(0.1));
+    }
+
+    // Esperar a que DOM esté listo
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', () => {
+        setTimeout(() => {
+          initMapPrincipal();
+          initMapSecundario();
+        }, 300);
+      });
+    } else {
+      setTimeout(() => {
+        initMapPrincipal();
+        initMapSecundario();
+      }, 300);
+    }
+
+    // Simple fade-in on scroll
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting) e.target.classList.add('show');
+      });
+    },{threshold:0.12});
+
+    document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
+
+    // Contact form (simulación básica)
+    document.getElementById('contactForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const msg = document.getElementById('message').value.trim();
+      const alertBox = document.getElementById('formAlert');
+
+      if(!name || !email || !msg){
+        alertBox.style.display='block';
+        alertBox.className='text-danger small';
+        alertBox.innerText='Por favor completa todos los campos.';
+        return;
+      }
+
+      // Simular envío — aquí podrías conectar una API real
+      alertBox.style.display='block';
+      alertBox.className='text-success small';
+      alertBox.innerText='¡Mensaje enviado! Te contactaremos pronto.';
+      this.reset();
+    });
+
+    // Smooth scroll for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', function(e){
+        const target = document.querySelector(this.getAttribute('href'));
+        if(target){ e.preventDefault(); target.scrollIntoView({behavior:'smooth', block:'start'}); }
+      });
+    });
+  </script>
+
+</body>
+</html>
